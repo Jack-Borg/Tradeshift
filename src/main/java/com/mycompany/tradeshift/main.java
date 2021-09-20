@@ -8,7 +8,9 @@ package com.mycompany.tradeshift;
 import java.util.Scanner;
 
 public class main {
-
+//TODO documentation
+    // interface?
+    //håndter fejl med trekant med for lang side (1,1,999999)
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -16,16 +18,16 @@ public class main {
         String[] input = scanner.nextLine().split(" ");
 
         try {
-            int a = Integer.parseInt(input[0]);
-            int b = Integer.parseInt(input[1]);
-            int c = Integer.parseInt(input[2]);
+            double a = Double.parseDouble(input[0]);
+            double b = Double.parseDouble(input[1]);
+            double c = Double.parseDouble(input[2]);
 
             Triangle t = new Triangle(a, b, c);
             System.out.println(t.getType());
 
             System.out.println(Triangle.getType(a, b, c));
         } catch (Exception e) {
-            System.out.println("NaN");
+            System.out.println(e.toString());
         }
     }
 }

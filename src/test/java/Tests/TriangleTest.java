@@ -51,4 +51,14 @@ public class TriangleTest {
 
         assertEquals(Triangle.Type.Scalene, t.getType());
     }
+    
+    @Test(expected = Exception.class)
+    public void testExeption() throws Exception {
+        Triangle t = new Triangle(0, 1, 1);
+    }
+    
+    @Test(expected = Exception.class)
+    public void testExeption2() throws Exception {
+        Triangle t = new Triangle(-1, 1, 1);
+    }
 }

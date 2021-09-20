@@ -7,9 +7,9 @@ package com.mycompany.tradeshift;
 
 public class Triangle {
 
-    int a;
-    int b;
-    int c;
+    double a;
+    double b;
+    double c;
     
     public enum Type{
         Equilateral,
@@ -17,10 +17,15 @@ public class Triangle {
         Scalene;
     };
     
-    public Triangle(int a, int b, int c){      
+    public Triangle(double a, double b, double c) throws Exception{      
         this.a = a;
         this.b = b;
         this.c = c;
+        
+        //triangles need to have positive length on all legs
+        if(a<=0 || b <=0 || c <= 0){
+            throw new Exception("not a valid triangle");
+        }
     }
 
     public Type getType(){
@@ -36,14 +41,11 @@ public class Triangle {
         return Type.Scalene;
     }
     
-    public static Type getType(int a, int b, int c) throws Exception {
-//        if(lengths.length != 3){
-//            throw new Exception("not a valid triangle");
-//        }
-//        
-//        int a = lengths[0];
-//        int b = lengths[1];
-//        int c = lengths[2];
+    public static Type getType(double a, double b, double c) throws Exception {  
+        //triangles need to have positive length on all legs
+        if(a<=0 || b <=0 || c <= 0){
+            throw new Exception("not a valid triangle");
+        }
         
         //equilateral triangles have 3 sides of equal lengths
         if (a == b && b == c) {
