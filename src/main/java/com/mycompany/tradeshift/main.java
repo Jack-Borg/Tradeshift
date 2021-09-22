@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.tradeshift;
 
 import java.util.Scanner;
 
 public class main {
 //TODO documentation
-    // interface?
-    //håndter fejl med trekant med for lang side (1,1,999999)
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter your triangle: ");
+        System.out.println("Enter your triangle (numbers seperated by spaces)");
         String[] input = scanner.nextLine().split(" ");
 
         try {
@@ -23,11 +16,9 @@ public class main {
             double c = Double.parseDouble(input[2]);
 
             Triangle t = new Triangle(a, b, c);
-            System.out.println(t.getType());
-
-            System.out.println(Triangle.getType(a, b, c));
+            System.out.println("the triangle is " + t.getType());
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         }
     }
 }

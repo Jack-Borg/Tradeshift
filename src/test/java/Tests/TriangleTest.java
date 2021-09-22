@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Tests;
 
 import com.mycompany.tradeshift.Triangle;
@@ -11,26 +6,6 @@ import org.junit.Test;
 
 public class TriangleTest {
 
-//    @Test
-//    public void testEquilateral() throws Exception {
-//        int[] lengths = new int[]{1,1,1};
-//
-//        assertEquals(Triangle.Type.Equilateral, Triangle.getType(lengths));
-//    }
-//    
-//    @Test
-//    public void testIsosceles() throws Exception {
-//        int[] lengths = new int[]{1,1,2};
-//
-//        assertEquals(Triangle.Type.Isosceles, Triangle.getType(lengths));
-//    }
-//    
-//    @Test
-//    public void testSceles() throws Exception {
-//        int[] lengths = new int[]{1,2,3};
-//
-//        assertEquals(Triangle.Type.Scalene, Triangle.getType(lengths));
-//    }
     @Test
     public void testEquilateral() throws Exception {
         Triangle t = new Triangle(1, 1, 1);
@@ -40,25 +15,27 @@ public class TriangleTest {
 
     @Test
     public void testIsosceles() throws Exception {
-        Triangle t = new Triangle(1, 1, 2);
+        Triangle t = new Triangle(1, 2, 2);
 
         assertEquals(Triangle.Type.Isosceles, t.getType());
     }
 
     @Test
     public void testSceles() throws Exception {
-        Triangle t = new Triangle(1, 2, 3);
+        Triangle t = new Triangle(4, 2, 3);
 
         assertEquals(Triangle.Type.Scalene, t.getType());
     }
-    
+
     @Test(expected = Exception.class)
-    public void testExeption() throws Exception {
+    public void testExceptionSmallLength() throws Exception {
         Triangle t = new Triangle(0, 1, 1);
     }
-    
+
+    //if the length of the two shorter legs is lower or equal to the longest leg
+    //the triangle cannot be valid
     @Test(expected = Exception.class)
-    public void testExeption2() throws Exception {
-        Triangle t = new Triangle(-1, 1, 1);
+    public void testExceptionHighLength() throws Exception {
+        Triangle t = new Triangle(1, 1, 10);
     }
 }
